@@ -11,10 +11,9 @@ from globals import *
 from app import app
 
 
-
 # =========  Layout  =========== #
 layout = dbc.Col([
-       
+        html.H5('Dashboards')    
     ])
 
 
