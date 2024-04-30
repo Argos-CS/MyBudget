@@ -76,7 +76,11 @@ layout = dbc.Col([
                 ], width=4)
             ], style={'margin-top': '25px'}),
 
-            dbc.Row(
+
+
+
+
+            dbc.Row([
                 dbc.Accordion([
                     dbc.AccordionItem(children=[
                         dbc.Row([
@@ -103,13 +107,20 @@ layout = dbc.Col([
                         ])
                     ], title='Adicionar/Remover Categorias')
                 ], flush=True, start_collapsed=True, id='accordion-receita'),
-            ),  # Closing parenthesis for dbc.Row
-
-            html.Div(id='id_teste_receita', style={'padding-top': '20px'}),
-
-            dbc.Modal([], id='modal-novo-receita')
-        ]),
-    ], id='modal-receita', is_open=False),
+            
+                html.Div(id='id_teste_receita', style={'padding-top': '20px'}),
+                dbc.ModalFooter([
+                    dbc.Button("Adicionar Receita", id="salvar_receita", color="sucess"),
+                    dbc.Popover(dbc.PopoverBody("Receita Salva"), target="salvar_receita", placement="left", trigger="click"),
+                ])
+            ], style={'margin-top': '25px'})
+        ])
+    ], style={"background-color": "rgba(17, 140, 70, 0.05)"},
+    id="modal-novo-receita",
+    size="lg",
+    is_open=False,
+    centered=True,
+    backdrop=True),
 
     # Modal Despesa
     dbc.Modal([
@@ -153,7 +164,7 @@ layout = dbc.Col([
                 ], width=4)
             ], style={'margin-top': '25px'}),
 
-            dbc.Row(
+            dbc.Row([
                 dbc.Accordion([
                     dbc.AccordionItem(children=[
                         dbc.Row([
@@ -172,50 +183,47 @@ layout = dbc.Col([
                                     id='checklist-selected-style-despesa',
                                     options=[],
                                     value=[],
-                                    label_checked_style={'color': 'red'},
-                                    input_checked_style={'backgroundColor': 'blue', 'borderColor': 'orange'},
+                                    label_checked_style={'color': 'red'}, input_checked_style={'backgroundColor': 'blue', 'borderColor': 'orange'},
                                 ),
                                 dbc.Button('Remover', color='warning', id='remove-category-despesa', style={'margin-top': '20px'}),
                             ], width=6)
                         ])
                     ], title='Adicionar/Remover Categorias')
                 ], flush=True, start_collapsed=True, id='accordion-despesa'),
-           ),  # Closing parenthesis for dbc.Row
+            
+                html.Div(id='id_teste_despesa', style={'padding-top': '20px'})
+            ])
+        ]),
+    ], id='modal-despesa', is_open=False),
 
-           html.Div(id='id_teste_despesa', style={'padding-top': '20px'}),
-
-           dbc.Modal([], id='modal-novo-despesa')
-       ]),
-   ], id='modal-despesa', is_open=False),
-
-   # Seção NAV -----------------------
-   html.Hr(),
-   dbc.Nav(
-       [
-           dbc.NavLink("Dashboard", href="/dashboards", active="exact"),
-           dbc.NavLink("Extratos", href="/extratos", active="exact"),
-       ], vertical=True, pills=True, id='nav-buttons', style={"margin-bottom": "50px"})
+    # Seção NAV -----------------------
+    html.Hr(),
+    dbc.Nav(
+        [
+            dbc.NavLink("Dashboard", href="/dashboards", active="exact"),
+            dbc.NavLink("Extratos", href="/extratos", active="exact"),
+        ], vertical=True, pills=True, id='nav-buttons', style={"margin-bottom": "50px"})
 ])
 
 # ========= Callbacks ========= #
 # Pop-up receita
 @app.callback(
-   Output('modal-receita', 'is_open'),
-   Input('open-novo-receita', 'n_clicks'),
-   State('modal-receita', 'is_open')
+    Output('modal-novo-receita', 'is_open'),
+    Input('open-novo-receita', 'n_clicks'),
+    State('modal-novo-receita', 'is_open')
 )
 def toggle_modal_receita(n1, is_open):
-   if n1:
-       return not is_open
-   return is_open
+    if n1:
+        return not is_open
+    return is_open
 
 # Pop-up despesa
 @app.callback(
-   Output('modal-despesa', 'is_open'),
-   Input('open-novo-despesa', 'n_clicks'),
-   State('modal-despesa', 'is_open')
+    Output('modal-despesa', 'is_open'),
+    Input('open-novo-despesa', 'n_clicks'),
+    State('modal-despesa', 'is_open')
 )
 def toggle_modal_despesa(n1, is_open):
-   if n1:
-       return not is_open
-   return is_open
+    if n1:
+        return not is_open
+    return is_open
