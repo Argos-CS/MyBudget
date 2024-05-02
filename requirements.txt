@@ -1,0 +1,9 @@
+dash  # Versão mais recente testada com o código fornecido
+dash-bootstrap-components  # Versão mais recente testada com o código fornecido
+dash-core-components # Incluído no dash, mas listado para completude
+dash-html-components # Incluído no dash, mas listado para completude
+dash-table  # Incluído no dash, mas listado para completude
+plotly  # Versão mais recente testada com o código fornecido
+pandas  # Versão mais recente testada com o código fornecido
+numpy  # Versão mais recente testada com o código fornecido
+globals
