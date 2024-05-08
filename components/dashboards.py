@@ -30,9 +30,7 @@ layout = dbc.Col([
                 ], style={'padding-left': '20px', 'padding-top': '10px'}),
                 dbc.Card([
                     html.Div(className='fa fa-university', style=card_icon),
-                    color='warning',
-                    style={'maxWidth': 75, 'height': 100, 'margin-left': '-10px'}    
-                )
+                ], color='warning', style={'maxWidth': '75px', 'height': '100px', 'margin-left': '-10px'})  
             ])
         ], width=4),
 
@@ -45,26 +43,22 @@ layout = dbc.Col([
                 ], style={'padding-left': '20px', 'padding-top': '10px'}),
                 dbc.Card([
                     html.Div(className='fa fa-smile-o', style=card_icon),
-                    color='sucess',
-                    style={'maxWidth': 75, 'height': 100, 'margin-left': '-10px'}    
-                )
+                ], color='sucess', style={'maxWidth': '75px', 'height': '100px', 'margin-left': '-10px'})  
             ])
         ], width=4),
-
-        # Despesa
+         
+         # Despesa
          dbc.Col([
             dbc.CardGroup([
                 dbc.Card([
-                    html.Legend('Depesa'),
-                    html.H5('R$ 4600', id='p-depesa-dashboards', style={}),
+                    html.Legend('Despesa'),
+                    html.H5('R$ 5400', id='p-despesa-dashboards', style={}),
                 ], style={'padding-left': '20px', 'padding-top': '10px'}),
                 dbc.Card([
                     html.Div(className='fa fa-meh-o', style=card_icon),
-                    color='danger',
-                    style={'maxWidth': 75, 'height': 100, 'margin-left': '-10px'}    
-                )
+                ], color='danger', style={'maxWidth': '75px', 'height': '100px', 'margin-left': '-10px'})  
             ])
-        ], width=4)
+        ], width=4),
     ], style={'margin': '10px'})
 ])
 
