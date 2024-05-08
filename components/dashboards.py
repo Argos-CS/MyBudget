@@ -43,7 +43,7 @@ layout = dbc.Col([
                 ], style={'padding-left': '20px', 'padding-top': '10px'}),
                 dbc.Card([
                     html.Div(className='fa fa-smile-o', style=card_icon),
-                ], color='sucess', style={'maxWidth': '75px', 'height': '100px', 'margin-left': '-10px'})  
+                ], color='success', style={'maxWidth': '75px', 'height': '100px', 'margin-left': '-10px'})  
             ])
         ], width=4),
          
